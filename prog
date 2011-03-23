@@ -1,0 +1,8 @@
+#!/bin/awk -f
+BEGIN { 
+    print substr($0, 1, 5) 
+	print " - " 
+	print substr($0, 6, 8) 
+	print " - " 
+	print substr($0, 14, 16)
+}
