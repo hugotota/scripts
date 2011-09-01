@@ -1,15 +1,18 @@
 #!/bin/bash
 
-# Lista de arquivos que são diferentes do mês atual
+# Lista de arquivos que sï¿½o diferentes do mï¿½s atual
 for arq in $(ls -l | awk '{ if ($6 != "Sep") print $9 }'); do 
 	echo $arq; 
 done
 
+# Pega data do arquivo no formato timestamp
+ls --full-time -l | awk '{print $6" "$7}'
+
 # Lisa de arquivos que tem RJ7Y no mome
 ls -l | awk '{ if(index($9, "RJ7Y")) print $9  }'
 
-# Substitui dados vindo de um arquivo "SQL" testando que tipo de awk irá
-# utilizar por conta da versão do S.O.
+# Substitui dados vindo de um arquivo "SQL" testando que tipo de awk irï¿½
+# utilizar por conta da versï¿½o do S.O.
 if [ "$OS" == "solaris" ]; then
 
     SQL=`cat outro.sql |
