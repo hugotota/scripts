@@ -13,11 +13,10 @@ function spinner {
 	  for i in "${spin[@]}"
 	  do
 	        echo -ne "\b$i"
-	        #sleep 0.1
+	        # sleep 0.1 - in AIX OS sleep doesn't accept fraction numbers
+	        perl -e 'select(undef,undef,undef,.1)'
 	  done
 	done
 
-	echo ""
+	echo -ne ""
 }
-
-spinner $1
